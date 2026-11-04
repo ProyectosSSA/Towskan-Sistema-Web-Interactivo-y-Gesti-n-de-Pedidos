@@ -2,437 +2,340 @@
 <html lang="es">
 
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout y Pago | Towskan</title>
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Finaliza tu pedido en Towskan. Paga con tarjeta de crédito/débito, Nequi, Daviplata, efectivo contra entrega o confirma vía WhatsApp.">
+    <meta property="og:title" content="Checkout y Pago | Towskan">
+    <meta property="og:description" content="Completa tus datos y recibe tu pedido gourmet caliente en minutos.">
+    <meta property="og:type" content="website">
 
-    <title>Touskan - Pago</title>
+    <!-- Bootstrap 5 & Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-    >
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
-        rel="stylesheet"
-    >
-    <link rel="stylesheet"href="style/pago.css">
-
+    <!-- Towskan Styles -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/pago.css">
 </head>
 
-
 <body>
+    <!-- ==========================================================================
+         NAVBAR PRINCIPAL
+         ========================================================================== -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-towskan fixed-top">
+            <div class="container px-3 px-md-4">
+                <a class="brand-logo" href="index.html" aria-label="Inicio Towskan">
+                    <i class="bi bi-fire brand-icon" aria-hidden="true"></i>
+                    <span>Towskan</span>
+                </a>
 
-
-<nav class="navbar">
-
-    <a
-        href="pedidos.html"
-        class="volver">
-
-        <i class="bi bi-arrow-left"></i>
-
-        Volver
-
-    </a>
-
-
-    <div class="logo">
-        Touskan
-    </div>
-
-</nav>
-
-
-<!-- =====================================================
-     CONTENIDO
-===================================================== -->
-
-<main class="container pago-container">
-
-
-    <h1>
-        Checkout
-    </h1>
-
-
-    <div class="row g-4">
-
-
-        <!-- =================================================
-             COLUMNA IZQUIERDA
-        ================================================== -->
-
-        <div class="col-lg-8">
-
-
-            <!-- MÉTODO DE PAGO -->
-
-            <section class="card-pago">
-
-                <h2>
-                    Método de Pago
-                </h2>
-
-
-                <!-- BOTONES -->
-
-                <div class="metodos">
-
-
-                    <!-- TARJETA -->
-
-                    <button
-                        type="button"
-                        class="metodo activo"
-                        id="btnTarjeta"
-                        onclick="seleccionarMetodo('tarjeta')">
-
-                        <i class="bi bi-credit-card"></i>
-
-                        <span>
-                            Tarjeta
-                        </span>
-
+                <div class="d-flex align-items-center gap-2 d-lg-none">
+                    <a href="pedidos.html" class="nav-cart-btn" aria-label="Ver carrito">
+                        <i class="bi bi-cart3"></i>
+                        <span class="cart-badge" id="cartNumberMobile">0</span>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false"
+                        aria-label="Alternar navegación">
+                        <i class="bi bi-list"></i>
                     </button>
-
-
-                    <!-- BILLETERA -->
-
-                    <button
-                        type="button"
-                        class="metodo"
-                        id="btnBilletera"
-                        onclick="seleccionarMetodo('billetera')">
-
-                        <i class="bi bi-wallet2"></i>
-
-                        <span>
-                            Billetera
-                        </span>
-
-                    </button>
-
-
-                    <!-- EFECTIVO -->
-
-                    <button
-                        type="button"
-                        class="metodo"
-                        id="btnEfectivo"
-                        onclick="seleccionarMetodo('efectivo')">
-
-                        <i class="bi bi-cash"></i>
-
-                        <span>
-                            Efectivo
-                        </span>
-
-                    </button>
-
                 </div>
 
-            </section>
+                <div class="collapse navbar-collapse justify-content-end" id="menuPrincipal">
+                    <ul class="navbar-nav align-items-lg-center gap-lg-2 my-3 my-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html"><i class="bi bi-house-door"></i> Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="menu.html"><i class="bi bi-grid"></i> Menú</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="pedidos.html"><i class="bi bi-receipt"></i> Pedidos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="servicio.html"><i class="bi bi-headset"></i> Soporte</a>
+                        </li>
+                    </ul>
 
+                    <ul class="navbar-nav align-items-lg-center gap-2 ms-lg-3 pt-2 pt-lg-0 border-top border-lg-0"
+                        id="navbarAuthSection">
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.html"><i class="bi bi-person"></i> Iniciar sesión</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn-nav-cta" href="registro.html">Registrarse</a>
+                        </li>
+                    </ul>
 
-            <!-- =================================================
-                 TARJETA
-            ================================================== -->
+                    <div class="d-none d-lg-flex ms-lg-3">
+                        <a href="pedidos.html" class="nav-cart-btn" aria-label="Ver pedido actual">
+                            <i class="bi bi-cart3"></i>
+                            <span class="cart-badge" id="cartNumber">0</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-            <section
-                class="card-pago"
-                id="formTarjeta">
+    <!-- ==========================================================================
+         CHECKOUT FORM & ORDER BREAKDOWN
+         ========================================================================== -->
+    <main class="container pago-container">
+        <h1 class="checkout-page-title">
+            <i class="bi bi-credit-card-2-front text-primary"></i>
+            <span>Finalizar y Pagar Pedido</span>
+        </h1>
 
-                <h2>
-                    Detalles de la Tarjeta
-                </h2>
+        <div class="row g-4">
+            <!-- COLUMNA IZQUIERDA: FORMULARIOS -->
+            <div class="col-lg-8">
+                <!-- 1. DATOS DE ENTREGA -->
+                <section class="card-pago" aria-labelledby="headingEntrega">
+                    <h2 id="headingEntrega">
+                        <i class="bi bi-geo-alt-fill text-primary"></i>
+                        <span>1. Datos de Entrega</span>
+                    </h2>
 
+                    <div class="row g-3">
+                        <div class="col-md-6 form-group-towskan">
+                            <label for="nombreCliente">Nombre de quien recibe</label>
+                            <input type="text" id="nombreCliente" class="form-control-towskan"
+                                placeholder="Ej. Allan Contreras" required>
+                        </div>
 
-                <label for="nombreTarjeta">
-                    Nombre en la Tarjeta
-                </label>
+                        <div class="col-md-6 form-group-towskan">
+                            <label for="telefonoCliente">Teléfono de contacto</label>
+                            <input type="tel" id="telefonoCliente" class="form-control-towskan"
+                                placeholder="Ej. 300 123 4567" required>
+                        </div>
 
-                <input
-                    type="text"
-                    id="nombreTarjeta"
-                    placeholder="Ej. Juan Pérez"
-                >
+                        <div class="col-12 form-group-towskan">
+                            <label for="direccionCliente">Dirección completa de entrega</label>
+                            <input type="text" id="direccionCliente" class="form-control-towskan"
+                                placeholder="Ej. Carrera 15 # 85-30, Apto 402, Torre B" required>
+                        </div>
 
+                        <div class="col-12 form-group-towskan mb-0">
+                            <label for="notasPedido">Indicaciones para el domiciliario (opcional)</label>
+                            <input type="text" id="notasPedido" class="form-control-towskan"
+                                placeholder="Ej. Tocar timbre 402, dejar en portería...">
+                        </div>
+                    </div>
+                </section>
 
-                <label for="numeroTarjeta">
-                    Número de Tarjeta
-                </label>
+                <!-- 2. MÉTODO DE PAGO -->
+                <section class="card-pago" aria-labelledby="headingMetodo">
+                    <h2 id="headingMetodo">
+                        <i class="bi bi-wallet-fill text-primary"></i>
+                        <span>2. Método de Pago</span>
+                    </h2>
 
-                <input
-                    type="text"
-                    id="numeroTarjeta"
-                    placeholder="0000 0000 0000 0000"
-                    maxlength="19"
-                    oninput="formatearTarjeta(this)"
-                >
+                    <!-- Pestañas de Métodos -->
+                    <div class="metodos" role="tablist">
+                        <button type="button" class="metodo activo" id="btnTarjeta"
+                            onclick="seleccionarMetodo('tarjeta')" role="tab" aria-selected="true">
+                            <i class="bi bi-credit-card-2-front"></i>
+                            <span>Tarjeta Débito/Crédito</span>
+                        </button>
 
+                        <button type="button" class="metodo" id="btnBilletera" onclick="seleccionarMetodo('billetera')"
+                            role="tab" aria-selected="false">
+                            <i class="bi bi-phone"></i>
+                            <span>Nequi / Daviplata</span>
+                        </button>
 
-                <div class="row">
+                        <button type="button" class="metodo" id="btnEfectivo" onclick="seleccionarMetodo('efectivo')"
+                            role="tab" aria-selected="false">
+                            <i class="bi bi-cash-stack"></i>
+                            <span>Contra Entrega</span>
+                        </button>
+                    </div>
+                </section>
 
-                    <div class="col-md-6">
-
-                        <label for="vencimiento">
-                            Vencimiento (MM/AA)
-                        </label>
-
-                        <input
-                            type="text"
-                            id="vencimiento"
-                            placeholder="MM/AA"
-                            maxlength="5"
-                            oninput="formatearVencimiento(this)"
-                        >
-
+                <!-- 3. CAMPOS DE TARJETA -->
+                <section class="card-pago" id="formTarjeta" aria-label="Detalles de tarjeta">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h2 class="mb-0">
+                            <i class="bi bi-shield-check text-primary"></i>
+                            <span>Detalles de la Tarjeta</span>
+                        </h2>
+                        <i class="bi bi-credit-card fs-4 text-primary" id="cardBrandIcon"></i>
                     </div>
 
-
-                    <div class="col-md-6">
-
-                        <label for="cvv">
-                            CVV
-                        </label>
-
-                        <input
-                            type="password"
-                            id="cvv"
-                            placeholder="123"
-                            maxlength="4"
-                        >
-
+                    <div class="form-group-towskan">
+                        <label for="nombreTarjeta">Nombre impreso en la tarjeta</label>
+                        <input type="text" id="nombreTarjeta" class="form-control-towskan" placeholder="Ej. JUAN PEREZ"
+                            autocomplete="cc-name">
                     </div>
 
-                </div>
-
-            </section>
-
-
-            <!-- =================================================
-                 BILLETERA
-            ================================================== -->
-
-            <section
-                class="card-pago oculto"
-                id="formBilletera">
-
-                <h2>
-                    Pago con Billetera
-                </h2>
-
-                <p>
-                    Selecciona tu billetera digital.
-                </p>
-
-
-                <div class="billeteras">
-
-
-                    <button
-                        type="button"
-                        id="btnNequi"
-                        onclick="seleccionarBilletera('Nequi')">
-
-                        <i class="bi bi-phone"></i>
-
-                        Nequi
-
-                    </button>
-
-
-                    <button
-                        type="button"
-                        id="btnDaviplata"
-                        onclick="seleccionarBilletera('Daviplata')">
-
-                        <i class="bi bi-phone"></i>
-
-                        Daviplata
-
-                    </button>
-
-                </div>
-
-
-                <label for="numeroBilletera">
-                    Número de celular
-                </label>
-
-                <input
-                    type="text"
-                    id="numeroBilletera"
-                    placeholder="Ej. 3001234567"
-                    maxlength="10"
-                >
-
-            </section>
-
-
-            <!-- =================================================
-                 EFECTIVO
-            ================================================== -->
-
-            <section
-                class="card-pago oculto"
-                id="formEfectivo">
-
-                <h2>
-                    Pago en Efectivo
-                </h2>
-
-
-                <div class="efectivo-info">
-
-                    <i class="bi bi-cash-stack"></i>
-
-
-                    <div>
-
-                        <strong>
-                            Pago contra entrega
-                        </strong>
-
-                        <p>
-                            Paga al recibir tu pedido.
-                        </p>
-
+                    <div class="form-group-towskan">
+                        <label for="numeroTarjeta">Número de tarjeta (16 dígitos)</label>
+                        <input type="text" id="numeroTarjeta" class="form-control-towskan"
+                            placeholder="0000 0000 0000 0000" maxlength="19" oninput="formatearTarjeta(this)"
+                            autocomplete="cc-number">
                     </div>
 
-                </div>
+                    <div class="row g-3">
+                        <div class="col-md-6 form-group-towskan mb-0">
+                            <label for="vencimiento">Vencimiento (MM/AA)</label>
+                            <input type="text" id="vencimiento" class="form-control-towskan" placeholder="MM/AA"
+                                maxlength="5" oninput="formatearVencimiento(this)" autocomplete="cc-exp">
+                        </div>
 
-            </section>
+                        <div class="col-md-6 form-group-towskan mb-0">
+                            <label for="cvv">Código de seguridad (CVV)</label>
+                            <input type="password" id="cvv" class="form-control-towskan" placeholder="123" maxlength="4"
+                                autocomplete="cc-csc">
+                        </div>
+                    </div>
+                </section>
 
+                <!-- 4. CAMPOS BILLETERA DIGITAL -->
+                <section class="card-pago oculto" id="formBilletera" aria-label="Pago con billetera digital">
+                    <h2>
+                        <i class="bi bi-phone text-primary"></i>
+                        <span>Transferencia Digital</span>
+                    </h2>
+                    <p class="text-muted small mb-3">Selecciona tu billetera y escribe el número desde el cual
+                        transferirás.</p>
+
+                    <div class="billeteras">
+                        <button type="button" id="btnNequi" class="activo" onclick="seleccionarBilletera('Nequi')">
+                            <i class="bi bi-qr-code text-primary"></i>
+                            <span>Nequi</span>
+                        </button>
+
+                        <button type="button" id="btnDaviplata" onclick="seleccionarBilletera('Daviplata')">
+                            <i class="bi bi-phone-fill text-danger"></i>
+                            <span>Daviplata</span>
+                        </button>
+                    </div>
+
+                    <div class="form-group-towskan mb-0">
+                        <label for="numeroBilletera">Número de celular asociado</label>
+                        <input type="tel" id="numeroBilletera" class="form-control-towskan"
+                            placeholder="Ej. 300 123 4567" maxlength="10">
+                    </div>
+                </section>
+
+                <!-- 5. CAMPOS EFECTIVO -->
+                <section class="card-pago oculto" id="formEfectivo" aria-label="Pago en efectivo">
+                    <h2>
+                        <i class="bi bi-cash-coin text-primary"></i>
+                        <span>Efectivo Contra Entrega</span>
+                    </h2>
+
+                    <div class="efectivo-info">
+                        <i class="bi bi-cash-stack"></i>
+                        <div>
+                            <strong>Paga en efectivo al repartidor</strong>
+                            <p>Ten a la mano el monto exacto o infórmale al repartidor si necesitas cambio al momento de
+                                recibir tus hamburguesas.</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- COLUMNA DERECHA: RESUMEN Y BOTÓN PAGAR -->
+            <div class="col-lg-4">
+                <aside class="resumen-card" aria-label="Resumen financiero del pedido">
+                    <h2>Resumen de la Orden</h2>
+
+                    <!-- Lista Compacta de Productos -->
+                    <div id="productosPago"></div>
+
+                    <hr class="my-3">
+
+                    <div class="fila">
+                        <span>Subtotal</span>
+                        <strong id="subtotalPago">$ 0</strong>
+                    </div>
+
+                    <div class="fila">
+                        <span>Costo de Envío</span>
+                        <strong id="envioPago">$ 0</strong>
+                    </div>
+
+                    <div class="fila">
+                        <span>Impuestos (8% Consumo)</span>
+                        <strong id="impuestosPago">$ 0</strong>
+                    </div>
+
+                    <div class="total">
+                        <span>Total</span>
+                        <strong id="totalPago">$ 0</strong>
+                    </div>
+
+                    <!-- Botón de Pago Principal -->
+                    <button type="button" class="btn-pagar" onclick="procesarPago()">
+                        <i class="bi bi-lock-fill"></i>
+                        <span>Pagar</span>
+                        <span id="textoTotal">$ 0</span>
+                    </button>
+
+                    <!-- Botón WhatsApp Destacado -->
+                    <button type="button" class="btn btn-whatsapp" onclick="finalizarPedidoWhatsApp()">
+                        <i class="bi bi-whatsapp"></i>
+                        <span>Confirmar pedido por WhatsApp</span>
+                    </button>
+
+                    <div class="seguro">
+                        <i class="bi bi-shield-check text-success"></i>
+                        <span>Transacción segura y encriptada</span>
+                    </div>
+                </aside>
+            </div>
         </div>
+    </main>
 
-
-        <!-- =================================================
-             COLUMNA DERECHA
-        ================================================== -->
-
-        <div class="col-lg-4">
-
-
-            <section class="resumen">
-
-
-                <h2>
-                    Resumen del Pedido
-                </h2>
-
-
-                <!-- PRODUCTOS -->
-
-                <div id="productosPago"></div>
-
-
-                <hr>
-
-
-                <div class="fila">
-
-                    <span>
-                        Subtotal
-                    </span>
-
-                    <strong id="subtotalPago">
-                        $0
-                    </strong>
-
+    <!-- ==========================================================================
+         FOOTER UNIFICADO
+         ========================================================================== -->
+    <footer class="footer-towskan">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-5 col-md-6">
+                    <a class="footer-brand brand-logo text-white" href="index.html">
+                        <i class="bi bi-fire text-warning"></i> Towskan
+                    </a>
+                    <p class="footer-text mt-2">
+                        El sabor más rápido de la ciudad. Tu satisfacción y seguridad en cada compra son nuestra mayor
+                        prioridad.
+                    </p>
                 </div>
-
-
-                <div class="fila">
-
-                    <span>
-                        Envío
-                    </span>
-
-                    <strong id="envioPago">
-                        $0
-                    </strong>
-
+                <div class="col-lg-3 col-md-6">
+                    <h4>Navegación</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="menu.html">Menú</a></li>
+                        <li><a href="pedidos.html">Pedidos</a></li>
+                        <li><a href="servicio.html">Soporte</a></li>
+                    </ul>
                 </div>
-
-
-                <div class="fila">
-
-                    <span>
-                        Impuestos
-                    </span>
-
-                    <strong id="impuestosPago">
-                        $0
-                    </strong>
-
+                <div class="col-lg-4 col-md-6">
+                    <h4>Contacto</h4>
+                    <p class="mb-2"><i class="bi bi-geo-alt-fill text-warning me-2"></i> valledupar, Colombia</p>
+                    <p class="mb-2"><i class="bi bi-envelope-fill text-warning me-2"></i> towskan@gmail.com</p>
+                    <p class="mb-2"><i class="bi bi-telephone-fill text-warning me-2"></i> +57 (305) 289 7641</p>
                 </div>
-
-
-                <hr>
-
-
-                <div class="total">
-
-                    <span>
-                        Total
-                    </span>
-
-                    <strong id="totalPago">
-                        $0
-                    </strong>
-
-                </div>
-
-
-                <!-- PAGAR -->
-
-                <button
-                    type="button"
-                    class="btn-pagar"
-                    onclick="procesarPago()">
-
-                    <i class="bi bi-lock-fill"></i>
-
-                    Pagar
-
-                    <span id="textoTotal">
-                        $0
-                    </span>
-
-                </button>
-
-
-                <div class="seguro">
-
-                    <i class="bi bi-shield-check"></i>
-
-                    Pago seguro y protegido
-
-                </div>
-
-            </section>
-
+            </div>
+            <div class="footer-bottom">
+                <div>&copy; 2026 Towskan Gourmet. Todos los derechos reservados.</div>
+            </div>
         </div>
+    </footer>
 
-    </div>
+    <!-- Bootstrap 5 Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-</main>
-
-
-<!-- JAVASCRIPT -->
-
-<script src="js/java.js"></script>
-
-
-<script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
-</script>
-
-
+    <!-- Towskan App Modules -->
+    <script type="module" src="assets/js/app.js"></script>
+    <script type="module" src="assets/js/checkout.js"></script>
 </body>
+
 </html>

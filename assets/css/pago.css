@@ -1,0 +1,266 @@
+/* ==========================================================================
+   TOWSKAN - CHECKOUT / PAGO STYLESHEET (pago.html)
+   Payment Methods Tabs, Card Masking, Delivery Fields, Order Breakdown
+   ========================================================================== */
+
+.pago-container {
+    padding-top: 30px;
+    padding-bottom: 60px;
+}
+
+.checkout-page-title {
+    font-size: clamp(28px, 4vw, 36px);
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 26px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Sections & Cards */
+.card-pago {
+    background: white;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    padding: 28px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow-xs);
+    transition: var(--transition);
+}
+
+.card-pago:hover {
+    box-shadow: var(--shadow-sm);
+    border-color: var(--border-hover);
+}
+
+.card-pago h2 {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Payment Method Selector Buttons */
+.metodos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.metodo {
+    background: var(--bg-alt);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 16px 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: var(--transition);
+    color: var(--text-secondary);
+    font-weight: 700;
+    font-size: 14px;
+    min-height: 80px;
+}
+
+.metodo i {
+    font-size: 24px;
+    color: var(--text-muted);
+    transition: var(--transition);
+}
+
+.metodo:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: var(--primary-light);
+}
+
+.metodo:hover i {
+    color: var(--primary);
+}
+
+.metodo.activo {
+    background: var(--primary-light);
+    border-color: var(--primary);
+    color: var(--primary-dark);
+    box-shadow: 0 4px 12px rgba(255, 101, 0, 0.15);
+}
+
+.metodo.activo i {
+    color: var(--primary);
+}
+
+/* Digital Wallet Buttons (Nequi / Daviplata) */
+.billeteras {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.billeteras button {
+    background: var(--bg-alt);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.billeteras button:hover {
+    border-color: var(--primary);
+    background: var(--primary-light);
+}
+
+.billeteras button.activo {
+    background: var(--primary-light);
+    border-color: var(--primary);
+    color: var(--primary-dark);
+}
+
+/* Cash on delivery notice */
+.efectivo-info {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 20px;
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: var(--radius-md);
+    color: #166534;
+}
+
+.efectivo-info i {
+    font-size: 36px;
+    color: #22c55e;
+}
+
+.efectivo-info strong {
+    font-size: 16px;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.efectivo-info p {
+    margin: 0;
+    font-size: 14px;
+    color: #15803d;
+}
+
+/* Right Summary Section */
+.resumen-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    padding: 26px;
+    box-shadow: var(--shadow-sm);
+    position: sticky;
+    top: calc(var(--navbar-height) + 20px);
+}
+
+.resumen-card h2 {
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 16px;
+    color: var(--text-primary);
+}
+
+#productosPago {
+    max-height: 240px;
+    overflow-y: auto;
+    margin-bottom: 16px;
+}
+
+.fila {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14.5px;
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+}
+
+.total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin: 18px 0;
+    padding-top: 14px;
+    border-top: 2px dashed var(--border);
+}
+
+.total strong {
+    color: var(--primary-dark);
+    font-size: 24px;
+}
+
+.btn-pagar {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white !important;
+    font-weight: 800;
+    font-size: 16.5px;
+    border-radius: var(--radius-md);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0 6px 18px rgba(255, 101, 0, 0.3);
+    transition: var(--transition);
+    margin-bottom: 12px;
+}
+
+.btn-pagar:hover {
+    background: linear-gradient(135deg, #ff751a, #cc5400);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(255, 101, 0, 0.4);
+}
+
+.seguro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-top: 14px;
+}
+
+.oculto {
+    display: none !important;
+}
+
+/* Responsive */
+@media (max-width: 575.98px) {
+    .metodos {
+        grid-template-columns: 1fr;
+    }
+
+    .metodo {
+        flex-direction: row;
+        min-height: 52px;
+        justify-content: flex-start;
+        padding-left: 20px;
+    }
+}

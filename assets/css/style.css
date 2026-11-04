@@ -1,0 +1,339 @@
+/* ==========================================================================
+   TOWSKAN - HOME PAGE STYLESHEET (index.html)
+   Hero Banner, Featured Products, Benefits, Social Proof
+   ========================================================================== */
+
+/* ==========================================================================
+   HERO BANNER
+   ========================================================================== */
+
+.hero-section {
+    position: relative;
+    min-height: calc(100vh - var(--navbar-height));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("../img/elcielo-restaurant-bogota.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(18, 14, 12, 0.72) 0%, rgba(18, 14, 12, 0.88) 100%);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 60px 20px;
+    color: white;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 101, 0, 0.2);
+    border: 1px solid rgba(255, 101, 0, 0.4);
+    backdrop-filter: blur(8px);
+    color: #ff9d5c;
+    padding: 6px 16px;
+    border-radius: var(--radius-pill);
+    font-size: 13.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 22px;
+}
+
+.hero-title {
+    font-size: clamp(34px, 5.5vw, 62px);
+    font-weight: 900;
+    line-height: 1.12;
+    letter-spacing: -1px;
+    color: white;
+    margin-bottom: 22px;
+}
+
+.hero-title .text-highlight {
+    background: linear-gradient(135deg, #ff8c42, #ff6500);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-text {
+    font-size: clamp(16px, 2vw, 19px);
+    line-height: 1.6;
+    color: #f0e4dc;
+    max-width: 640px;
+    margin: 0 auto 36px;
+}
+
+.hero-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.hero-actions .btn-towskan-primary {
+    font-size: 18px;
+    padding: 14px 36px;
+}
+
+/* ==========================================================================
+   POPULAR FAVORITES (Section)
+   ========================================================================== */
+
+.favoritos-section {
+    padding: 85px 0;
+    background-color: var(--bg-alt);
+}
+
+.section-header {
+    margin-bottom: 48px;
+}
+
+.section-tag {
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--primary);
+    margin-bottom: 8px;
+    display: block;
+}
+
+.section-title {
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -0.5px;
+    margin-bottom: 12px;
+}
+
+.section-subtitle {
+    font-size: 16px;
+    color: var(--text-secondary);
+    max-width: 580px;
+    margin: 0 auto;
+}
+
+/* Product Cards */
+.towskan-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    position: relative;
+}
+
+.towskan-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-subtle);
+}
+
+.card-img-wrapper {
+    position: relative;
+    width: 100%;
+    height: 230px;
+    overflow: hidden;
+    background-color: #f7ede8;
+}
+
+.card-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.towskan-card:hover .card-img-wrapper img {
+    transform: scale(1.06);
+}
+
+.card-tag {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: rgba(18, 14, 12, 0.75);
+    backdrop-filter: blur(6px);
+    color: white;
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: var(--radius-pill);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.card-body-content {
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+}
+
+.card-body-content h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.card-body-content p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+}
+
+.card-footer-action {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+}
+
+.card-price {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--primary-dark);
+}
+
+.btn-card-add {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: var(--primary-light);
+    color: var(--primary);
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.btn-card-add:hover {
+    background-color: var(--primary);
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(255, 101, 0, 0.3);
+}
+
+/* ==========================================================================
+   WHY TOWSKAN (Benefits Section)
+   ========================================================================== */
+
+.why-section {
+    padding: 85px 0;
+    background-color: var(--bg-body);
+}
+
+.feature-box {
+    background: white;
+    padding: 36px 28px;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    text-align: center;
+    height: 100%;
+    box-shadow: var(--shadow-xs);
+    transition: var(--transition);
+}
+
+.feature-box:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-subtle);
+}
+
+.feature-icon-wrapper {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-light), var(--primary-subtle));
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    margin: 0 auto 22px;
+    transition: var(--transition);
+}
+
+.feature-box:hover .feature-icon-wrapper {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+    transform: rotate(5deg) scale(1.08);
+}
+
+.feature-box h3 {
+    font-size: 21px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+}
+
+.feature-box p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* ==========================================================================
+   CALL TO ACTION BANNER
+   ========================================================================== */
+
+.cta-banner {
+    padding: 60px 0;
+    background: linear-gradient(135deg, var(--secondary), var(--dark));
+    color: white;
+    border-radius: var(--radius-lg);
+    position: relative;
+    overflow: hidden;
+    margin-top: 30px;
+}
+
+.cta-banner::after {
+    content: "";
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    background: radial-gradient(circle, rgba(255, 101, 0, 0.22) 0%, transparent 70%);
+    top: -50px;
+    right: -50px;
+    pointer-events: none;
+}
+
+/* Responsive */
+@media (max-width: 767.98px) {
+    .hero-section {
+        min-height: 520px;
+    }
+
+    .card-img-wrapper {
+        height: 200px;
+    }
+
+    .favoritos-section,
+    .why-section {
+        padding: 55px 0;
+    }
+}

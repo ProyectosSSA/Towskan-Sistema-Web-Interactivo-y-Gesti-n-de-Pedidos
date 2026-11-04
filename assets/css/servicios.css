@@ -1,0 +1,193 @@
+/* ==========================================================================
+   TOWSKAN - SOPORTE / SERVICIO AL CLIENTE (servicio.html)
+   Hero Search, Support Channels, Accordion FAQ
+   ========================================================================== */
+
+.soporte-hero {
+    background: linear-gradient(135deg, var(--bg-alt), #f5e4dc);
+    padding: 60px 20px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+}
+
+.soporte-hero h1 {
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+}
+
+.buscador-wrapper {
+    max-width: 580px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.buscador-input {
+    width: 100%;
+    height: 52px;
+    padding: 12px 20px 12px 50px;
+    font-size: 16px;
+    border: 2px solid var(--border);
+    border-radius: var(--radius-pill);
+    background: white;
+    color: var(--text-primary);
+    outline: none;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.buscador-input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 4px 16px rgba(255, 101, 0, 0.2);
+}
+
+.buscador-icon {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--primary);
+    font-size: 18px;
+    pointer-events: none;
+}
+
+/* Tarjetas de Canales de Atención */
+.canales-section {
+    padding: 60px 0;
+}
+
+.canal-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 32px 24px;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: var(--shadow-xs);
+    transition: var(--transition);
+}
+
+.canal-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-subtle);
+}
+
+.canal-icono {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background-color: var(--primary-light);
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    margin: 0 auto 20px;
+    transition: var(--transition);
+}
+
+.canal-card:hover .canal-icono {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+    transform: scale(1.08);
+}
+
+.canal-card h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+}
+
+.canal-card p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--text-secondary);
+    margin-bottom: 22px;
+}
+
+/* Preguntas Frecuentes (FAQ) */
+.faq-section {
+    padding: 0 0 70px;
+}
+
+.faq-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    padding: 30px;
+    box-shadow: var(--shadow-sm);
+}
+
+.faq-title {
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 24px;
+    color: var(--text-primary);
+    text-align: center;
+}
+
+.pregunta-item {
+    border-bottom: 1px solid var(--border);
+    padding: 16px 0;
+}
+
+.pregunta-item:last-child {
+    border-bottom: none;
+}
+
+.pregunta-btn {
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16.5px;
+    font-weight: 700;
+    color: var(--text-primary);
+    cursor: pointer;
+    padding: 8px 0;
+    gap: 12px;
+    transition: color 0.2s;
+}
+
+.pregunta-btn:hover {
+    color: var(--primary);
+}
+
+.pregunta-btn i {
+    font-size: 15px;
+    color: var(--text-muted);
+    transition: transform 0.25s ease;
+}
+
+.pregunta-item.abierta .pregunta-btn i {
+    transform: rotate(180deg);
+    color: var(--primary);
+}
+
+.respuesta-content {
+    display: none;
+    padding-top: 10px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+.pregunta-item.abierta .respuesta-content {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+}

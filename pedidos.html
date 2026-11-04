@@ -2,347 +2,249 @@
 <html lang="es">
 
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Pedido | Towskan</title>
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Revisa los productos de tu carrito en Towskan, ajusta cantidades, añade extras y finaliza tu pedido online o vía WhatsApp.">
+    <meta property="og:title" content="Tu Pedido | Towskan">
+    <meta property="og:description" content="Revisa tu carrito y completa tu orden rápidamente.">
+    <meta property="og:image" content="assets/img/hamburguesa.jpg">
+    <meta property="og:type" content="website">
 
-    <title>Touskan - Pedido</title>
+    <!-- Bootstrap 5 & Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
-    <!-- Bootstrap -->
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-        rel="stylesheet">
-
-    <!-- Bootstrap Icons -->
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
-        rel="stylesheet">
-
-    <!-- CSS -->
-    <link rel="stylesheet"href="style/pedidos.css">
-
+    <!-- Towskan Styles -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/pedidos.css">
 </head>
 
-
 <body>
-
-
-<!-- ======================================
-     NAVBAR
-======================================= -->
-
-<nav class="navbar navbar-light bg-white border-bottom">
-
-    <div class="container-fluid px-4">
-
-        <a
-            class="navbar-brand logo"
-            href="index.html">
-
-            Touskan
-
-        </a>
-
-
-        <div
-            class="nav-links d-none d-md-flex align-items-center gap-4">
-
-            <a href="menu.html">
-
-                <i class="bi bi-house"></i>
-                Menú
-
-            </a>
-
-
-            <a href="pedidos.html">
-
-                <i class="bi bi-cart"></i>
-                Pedidos
-
-            </a>
-
-
-            <a href="#">
-
-                <i class="bi bi-question-circle"></i>
-                Soporte
-
-            </a>
-
-
-            <a href="#">
-
-                <i class="bi bi-person"></i>
-                Cuenta
-
-            </a>
-
-        </div>
-
-    </div>
-
-</nav>
-
-
-
-<!-- ======================================
-     CONTENIDO
-======================================= -->
-
-<main class="container-fluid px-4 px-md-5 py-4">
-
-    <div class="row g-4">
-
-
-        <!-- =================================
-             COLUMNA IZQUIERDA
-        ================================== -->
-
-        <div class="col-lg-8">
-
-
-            <h5 class="section-title mb-4">
-
-                Tu Pedido
-
-                (<span id="cantidadArticulos">
-                    0
-                </span>
-                artículos)
-
-            </h5>
-
-
-            <!-- CARRITO -->
-
-            <div id="listaCarrito">
-
-                <!-- Los productos aparecen
-                     automáticamente aquí -->
-
-            </div>
-
-
-            <!-- =================================
-                 SI EL CARRITO ESTÁ VACÍO
-            ================================== -->
-
-            <div
-                id="carritoVacio"
-                class="text-center py-5">
-
-                <i
-                    class="bi bi-cart-x"
-                    style="font-size:50px;color:#b74700;">
-                </i>
-
-                <h5 class="mt-3">
-
-                    Tu carrito está vacío
-
-                </h5>
-
-                <p>
-
-                    Agrega algunos productos
-                    deliciosos de nuestro menú.
-
-                </p>
-
-                <a
-                    href="menu.html"
-                    class="btn btn-warning">
-
-                    Ver menú
-
+    <!-- ==========================================================================
+         NAVBAR PRINCIPAL
+         ========================================================================== -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-towskan fixed-top">
+            <div class="container px-3 px-md-4">
+                <a class="brand-logo" href="index.html" aria-label="Inicio Towskan">
+                    <i class="bi bi-fire brand-icon" aria-hidden="true"></i>
+                    <span>Towskan</span>
                 </a>
 
+                <!-- Carrito Móvil y Botón Menú -->
+                <div class="d-flex align-items-center gap-2 d-lg-none">
+                    <a href="pedidos.html" class="nav-cart-btn" aria-label="Ver carrito">
+                        <i class="bi bi-cart3"></i>
+                        <span class="cart-badge" id="cartNumberMobile">0</span>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false"
+                        aria-label="Alternar navegación">
+                        <i class="bi bi-list"></i>
+                    </button>
+                </div>
+
+                <div class="collapse navbar-collapse justify-content-end" id="menuPrincipal">
+                    <ul class="navbar-nav align-items-lg-center gap-lg-2 my-3 my-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html"><i class="bi bi-house-door"></i> Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="menu.html"><i class="bi bi-grid"></i> Menú</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="pedidos.html"><i class="bi bi-receipt"></i> Pedidos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="servicio.html"><i class="bi bi-headset"></i> Soporte</a>
+                        </li>
+                    </ul>
+
+                    <ul class="navbar-nav align-items-lg-center gap-2 ms-lg-3 pt-2 pt-lg-0 border-top border-lg-0"
+                        id="navbarAuthSection">
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.html"><i class="bi bi-person"></i> Iniciar sesión</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn-nav-cta" href="registro.html">Registrarse</a>
+                        </li>
+                    </ul>
+
+                    <div class="d-none d-lg-flex ms-lg-3">
+                        <a href="pedidos.html" class="nav-cart-btn" aria-label="Ver pedido actual"
+                            title="Ver pedido actual">
+                            <i class="bi bi-cart3"></i>
+                            <span class="cart-badge" id="cartNumber">0</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ==========================================================================
+         CONTENIDO: LISTA DE ARTÍCULOS Y RESUMEN
+         ========================================================================== -->
+    <main class="container pedidos-container">
+        <div class="row g-4">
+            <!-- COLUMNA IZQUIERDA: ARTÍCULOS EN EL CARRITO -->
+            <div class="col-lg-8">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h1 class="section-title mb-0">
+                        <i class="bi bi-basket3 text-primary"></i>
+                        Tu Pedido (<span id="cantidadArticulos">0</span> artículos)
+                    </h1>
+                    <a href="menu.html" class="btn btn-outline-secondary btn-sm rounded-pill px-3">
+                        <i class="bi bi-plus-circle me-1"></i> Añadir más
+                    </a>
+                </div>
+
+                <!-- Lista Dinámica de Productos -->
+                <div id="listaCarrito">
+                    <!-- Los productos se inyectan automáticamente desde cart.js -->
+                </div>
+
+                <!-- Estado Carrito Vacío -->
+                <div id="carritoVacio" class="text-center py-5" style="display: none;">
+                    <i class="bi bi-cart-x"></i>
+                    <h5>Tu carrito está vacío</h5>
+                    <p class="text-muted">Parece que aún no has agregado ninguna delicia gourmet de nuestro menú.</p>
+                    <a href="menu.html" class="btn btn-towskan-primary mt-2">
+                        <i class="bi bi-grid me-2"></i> Ver Menú Completo
+                    </a>
+                </div>
+
+                <!-- SECCIÓN COMPLETA TU MENÚ (UPSELL) -->
+                <div class="extras mt-4">
+                    <div class="extras-title">
+                        <span>🔥</span>
+                        <span>COMPLETA TU MENÚ CON EXTRAS</span>
+                    </div>
+
+                    <div class="extras-buttons">
+                        <!-- Extra Bebida -->
+                        <button type="button" class="extra-btn"
+                            onclick="agregarProducto('Bebida Refrescante', 2500, 'assets/img/bebidas.jpg', 'Bebida fría refrescante')">
+                            <div class="d-flex align-items-center gap-2">
+                                <i class="bi bi-plus-circle-fill"></i>
+                                <span>Bebida Refrescante</span>
+                            </div>
+                            <strong>$ 2.500</strong>
+                        </button>
+
+                        <!-- Extra Salsa -->
+                        <button type="button" class="extra-btn"
+                            onclick="agregarProducto('Salsa Barbacoa', 1000, 'assets/img/salsa-barbacoa.avif', 'Salsa barbacoa especial')">
+                            <div class="d-flex align-items-center gap-2">
+                                <i class="bi bi-plus-circle-fill"></i>
+                                <span>Salsa Barbacoa</span>
+                            </div>
+                            <strong>$ 1.000</strong>
+                        </button>
+
+                        <!-- Extra Papas -->
+                        <button type="button" class="extra-btn"
+                            onclick="agregarProducto('Papas Cargadas Picantes', 3400, 'assets/img/patatas-fritas.jpg', 'Papas crujientes con mayonesa picante')">
+                            <div class="d-flex align-items-center gap-2">
+                                <i class="bi bi-plus-circle-fill"></i>
+                                <span>Papas Cargadas</span>
+                            </div>
+                            <strong>$ 3.400</strong>
+                        </button>
+                    </div>
+                </div>
             </div>
 
-
-
-            <!-- =================================
-                 COMPLETA TU MENÚ
-            ================================== -->
-
-            <div class="extras mt-4">
-
-                <div class="extras-title">
-
-                    🔥 &nbsp;
-                    COMPLETA TU MENÚ
-
-                </div>
-
-
-                <div class="extras-buttons">
-
-
-                    <button
-                        class="extra-btn"
-                        onclick="addProduct(
-                            'Bebida Refrescante',
-                            2500,
-                            'fotos/bebidas.jpg',
-                            'Bebida fría refrescante'
-                        )">
-
-                        <i class="bi bi-plus-circle"></i>
-
-                        Bebida Refrescante
-
-                        <strong>
-                            $2.500
-                        </strong>
-
-                    </button>
-
-
-
-                    <button
-                        class="extra-btn"
-                        onclick="addProduct(
-                            'Salsa Barbacoa',
-                            1000,
-                            'fotos/salsa-barbacoa.avif',
-                            'Salsa barbacoa para acompañar'
-                        )">
-
-                        <i class="bi bi-plus-circle"></i>
-
-                        Salsa Barbacoa
-
-                        <strong>
-                            $1.000
-                        </strong>
-
-                    </button>
-
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- =================================
-             COLUMNA DERECHA
-        ================================== -->
-
-        <div class="col-lg-4">
-
-
-            <div class="summary-card">
-
-
-                <h4>
-
-                    Resumen del Pedido
-
-                </h4>
-
-
-                <hr>
-
-
-                <div class="summary-row">
-
-                    <span>
-                        Subtotal
-                    </span>
-
-                    <strong id="subtotal">
-                        $0.00
-                    </strong>
-
-                </div>
-
-
-
-                <div class="summary-row">
-
-                    <span>
-                        Impuestos
-                    </span>
-
-                    <strong id="impuestos">
-                        $0.00
-                    </strong>
-
-                </div>
-
-
-
-                <div class="summary-row">
-
-                    <span>
-                        Costo de Envío
-                    </span>
-
-                    <strong id="envio">
-                        $3.500
-                    </strong>
-
-                </div>
-
-
-
-                <hr>
-
-
-
-                <div class="total-row">
-
-                    <span>
-                        Total
-                    </span>
-
-                    <strong id="total">
-                        $0.00
-                    </strong>
-
-                </div>
-
-
-
-                <a href="pago.html" class="checkout-btn">
-                    Proceder al Pago
-                    <i class="bi bi-arrow-right"></i>
-            
+            <!-- COLUMNA DERECHA: RESUMEN DEL PEDIDO -->
+            <div class="col-lg-4">
+                <aside class="summary-card" aria-label="Resumen total del pedido">
+                    <h4>Resumen del Pedido</h4>
+
+                    <div class="summary-row">
+                        <span>Subtotal</span>
+                        <strong id="subtotal">$ 0</strong>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>Impuestos (8% Consumo)</span>
+                        <strong id="impuestos">$ 0</strong>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>Costo de Envío</span>
+                        <strong id="envio">$ 0</strong>
+                    </div>
+
+                    <div class="total-row">
+                        <span>Total a Pagar</span>
+                        <strong id="total">$ 0</strong>
+                    </div>
+
+                    <!-- Botón Pago con Tarjeta/Efectivo -->
+                    <a href="pago.html" class="checkout-btn">
+                        <span>Proceder al Pago</span>
+                        <i class="bi bi-arrow-right"></i>
                     </a>
 
+                    <!-- Botón Finalizar por WhatsApp (Destacado) -->
+                    <button type="button" class="btn btn-whatsapp btn-whatsapp-order">
+                        <i class="bi bi-whatsapp"></i>
+                        <span>Confirmar pedido por WhatsApp</span>
+                    </button>
 
-
-                <div class="secure-payment">
-
-                    🔒 Pago 100% seguro y encriptado
-
-                </div>
-
-
+                    <div class="secure-payment">
+                        <i class="bi bi-shield-lock-fill text-success"></i>
+                        <span>Pago 100% seguro y encriptado</span>
+                    </div>
+                </aside>
             </div>
-
         </div>
+    </main>
 
-    </div>
-    
+    <!-- ==========================================================================
+         FOOTER UNIFICADO
+         ========================================================================== -->
+    <footer class="footer-towskan">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-5 col-md-6">
+                    <a class="footer-brand brand-logo text-white" href="index.html">
+                        <i class="bi bi-fire text-warning"></i> Towskan
+                    </a>
+                    <p class="footer-text mt-2">
+                        El sabor más rápido de la ciudad. Calidad gourmet y servicio insuperable en cada orden.
+                    </p>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4>Navegación</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="menu.html">Menú</a></li>
+                        <li><a href="pedidos.html">Pedidos</a></li>
+                        <li><a href="servicio.html">Soporte</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h4>Contacto</h4>
+                    <p class="mb-2"><i class="bi bi-geo-alt-fill text-warning me-2"></i> valledupar, Colombia</p>
+                    <p class="mb-2"><i class="bi bi-envelope-fill text-warning me-2"></i> towskan@gmail.com</p>
+                    <p class="mb-2"><i class="bi bi-telephone-fill text-warning me-2"></i> +57 (305) 289 7641</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div>&copy; 2026 Towskan Gourmet. Todos los derechos reservados.</div>
+            </div>
+        </div>
+    </footer>
 
-</main>
+    <!-- Bootstrap 5 Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-
-
-<!-- ======================================
-     JAVASCRIPT
-======================================= -->
-
-<script src="js/java.js"></script>
-
-
+    <!-- Towskan App Modules -->
+    <script type="module" src="assets/js/app.js"></script>
 </body>
 
 </html>

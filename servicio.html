@@ -1,384 +1,334 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centro de Soporte | Towskan</title>
 
-    <title>Touskan - Soporte</title>
+    <meta name="description"
+        content="¿Necesitas ayuda con tu pedido en Towskan? Consulta nuestras preguntas frecuentes, chatea con nosotros o comunícate con atención al cliente.">
+    <meta property="og:title" content="Centro de Soporte | Towskan">
+    <meta property="og:description"
+        content="Estamos listos para atender tus dudas sobre pedidos, cancelaciones y entregas.">
+    <meta property="og:type" content="website">
 
-    <!-- ICONOS -->
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-          
- <link rel="stylesheet" href="style/servicios.css">
+    <!-- Bootstrap 5 & Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
+    <!-- Towskan Styles -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/servicios.css">
 </head>
 
-
 <body>
+    <!-- ==========================================================================
+         NAVBAR PRINCIPAL
+         ========================================================================== -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-towskan fixed-top">
+            <div class="container px-3 px-md-4">
+                <a class="brand-logo" href="index.html" aria-label="Inicio Towskan">
+                    <i class="bi bi-fire brand-icon" aria-hidden="true"></i>
+                    <span>Towskan</span>
+                </a>
 
+                <div class="d-flex align-items-center gap-2 d-lg-none">
+                    <a href="pedidos.html" class="nav-cart-btn" aria-label="Ver carrito">
+                        <i class="bi bi-cart3"></i>
+                        <span class="cart-badge" id="cartNumberMobile">0</span>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false"
+                        aria-label="Alternar navegación">
+                        <i class="bi bi-list"></i>
+                    </button>
+                </div>
 
-    <!-- HEADER -->
+                <div class="collapse navbar-collapse justify-content-end" id="menuPrincipal">
+                    <ul class="navbar-nav align-items-lg-center gap-lg-2 my-3 my-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html"><i class="bi bi-house-door"></i> Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="menu.html"><i class="bi bi-grid"></i> Menú</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="pedidos.html"><i class="bi bi-receipt"></i> Pedidos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="servicio.html"><i class="bi bi-headset"></i> Soporte</a>
+                        </li>
+                    </ul>
 
-    <header class="header">
+                    <ul class="navbar-nav align-items-lg-center gap-2 ms-lg-3 pt-2 pt-lg-0 border-top border-lg-0"
+                        id="navbarAuthSection">
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.html"><i class="bi bi-person"></i> Iniciar sesión</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn-nav-cta" href="registro.html">Registrarse</a>
+                        </li>
+                    </ul>
 
-        <div>
-        <a href="index.html" class="logo">
-
-            <i class="fa-solid fa-bars"></i>
-
-            <span>
-                Touskan
-            </span>
-            </a>
-        </div>
-
-
-
-
-
-    
+                    <div class="d-none d-lg-flex ms-lg-3">
+                        <a href="pedidos.html" class="nav-cart-btn" aria-label="Ver pedido actual">
+                            <i class="bi bi-cart3"></i>
+                            <span class="cart-badge" id="cartNumber">0</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
     </header>
 
-
-
-    <!-- CONTENIDO -->
-
+    <!-- ==========================================================================
+         HERO SEARCH
+         ========================================================================== -->
     <main>
-
-
-        <!-- HERO -->
-
-        <section class="hero">
-
-            <h1>
-                ¿Cómo podemos ayudarte?
-            </h1>
-
-
-            <div class="buscador">
-
-                <i class="fa-solid fa-magnifying-glass"></i>
-
-                <input
-                    id="busqueda"
-                    type="text"
-                    placeholder="Buscar ayuda sobre pedidos, entregas..."
-                >
-
+        <section class="soporte-hero">
+            <div class="container">
+                <h1>¿Cómo podemos ayudarte hoy?</h1>
+                <div class="buscador-wrapper">
+                    <i class="bi bi-search buscador-icon" aria-hidden="true"></i>
+                    <input type="text" id="busqueda" class="buscador-input"
+                        placeholder="Busca respuestas sobre pedidos, envíos, métodos de pago..."
+                        aria-label="Buscar ayuda">
+                </div>
             </div>
-
         </section>
 
+        <!-- ==========================================================================
+             CANALES DE CONTACTO
+             ========================================================================== -->
+        <section class="canales-section">
+            <div class="container">
+                <div class="row g-4">
+                    <!-- CHAT -->
+                    <div class="col-md-4">
+                        <div class="canal-card">
+                            <div>
+                                <div class="canal-icono">
+                                    <i class="bi bi-chat-dots-fill"></i>
+                                </div>
+                                <h2>Chat en Vivo</h2>
+                                <p>Comunícate con nuestro equipo de atención por WhatsApp o soporte web en tiempo real.
+                                    Tiempo de respuesta promedio: menos de 2 minutos.</p>
+                            </div>
+                            <button type="button" class="btn-towskan-primary w-100" id="btnIniciarChat">
+                                <i class="bi bi-whatsapp me-2"></i> Iniciar Chat
+                            </button>
+                        </div>
+                    </div>
 
+                    <!-- TELÉFONO -->
+                    <div class="col-md-4">
+                        <div class="canal-card">
+                            <div>
+                                <div class="canal-icono">
+                                    <i class="bi bi-telephone-fill"></i>
+                                </div>
+                                <h2>Llámanos Directo</h2>
+                                <p>Línea exclusiva para emergencias de pedidos en curso, cambios de dirección o
+                                    confirmación inmediata con el restaurante.</p>
+                            </div>
+                            <button type="button" class="btn-towskan-secondary w-100" id="btnVerNumeros">
+                                <i class="bi bi-telephone me-2"></i> Ver Números
+                            </button>
+                        </div>
+                    </div>
 
-        <!-- TARJETAS-->
-
-        <section class="tarjetas">
-
-
-            <!-- CHAT -->
-
-            <div class="tarjeta">
-
-                <div class="icono naranja">
-
-                    <i class="fa-solid fa-message"></i>
-
+                    <!-- CORREO -->
+                    <div class="col-md-4">
+                        <div class="canal-card">
+                            <div>
+                                <div class="canal-icono">
+                                    <i class="bi bi-envelope-fill"></i>
+                                </div>
+                                <h2>Correo Electrónico</h2>
+                                <p>Para sugerencias, cotizaciones corporativas, eventos o reclamos detallados. Te
+                                    respondemos el mismo día hábil.</p>
+                            </div>
+                            <a href="mailto:soporte@towskan.com" class="btn-towskan-secondary w-100">
+                                <i class="bi bi-send me-2"></i> Enviar Mensaje
+                            </a>
+                        </div>
+                    </div>
                 </div>
-
-
-                <h2>
-                    Chat en Vivo
-                </h2>
-
-
-                <p>
-                    Habla directamente con nuestro equipo.
-                    Respuesta en menos de 2 minutos.
-                </p>
-
-
-                <button
-                    class="btn-principal"
-                    onclick="iniciarChat()">
-
-                    Iniciar Chat
-
-                </button>
-
             </div>
-
-
-
-            <!-- TELÉFONO -->
-
-            <div class="tarjeta">
-
-                <div class="icono gris">
-
-                    <i class="fa-solid fa-phone"></i>
-
-                </div>
-
-
-                <h2>
-                    Llámanos
-                </h2>
-
-
-                <p>
-                    Línea directa para urgencias con tus
-                    pedidos actuales.
-                </p>
-
-
-                <button
-                    class="btn-secundario"
-                    onclick="verNumeros()">
-
-                    Ver Números
-
-                </button>
-
-            </div>
-
-
-
-            <!-- CORREO -->
-
-            <div class="tarjeta">
-
-                <div class="icono gris">
-
-                    <i class="fa-solid fa-envelope"></i>
-
-                </div>
-
-
-                <h2>
-                    Correo Electrónico
-                </h2>
-
-
-                <p>
-                    Para consultas generales, reembolsos o
-                    feedback detallado.
-                </p>
-
-
-                <button
-                    class="btn-secundario"
-                    onclick="enviarMensaje()">
-
-                    Enviar Mensaje
-
-                </button>
-
-            </div>
-
         </section>
 
+        <!-- ==========================================================================
+             PREGUNTAS FRECUENTES (FAQ)
+             ========================================================================== -->
+        <section class="faq-section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-9">
+                        <div class="faq-card">
+                            <h2 class="faq-title">Preguntas Frecuentes</h2>
 
+                            <div class="pregunta-item">
+                                <button type="button" class="pregunta-btn" aria-expanded="false">
+                                    <span>¿Cuánto tarda en llegar mi pedido?</span>
+                                    <i class="bi bi-chevron-down"></i>
+                                </button>
+                                <div class="respuesta-content">
+                                    Nuestro tiempo estimado de entrega estándar es de <strong>25 a 35 minutos</strong>
+                                    en zona urbana de Bogotá. Si hay condiciones climáticas adversas, te notificaremos
+                                    por WhatsApp.
+                                </div>
+                            </div>
 
-        <!-- PREGUNTAS FRECUENTES -->
+                            <div class="pregunta-item">
+                                <button type="button" class="pregunta-btn" aria-expanded="false">
+                                    <span>¿Cómo cancelo o modifico mi orden?</span>
+                                    <i class="bi bi-chevron-down"></i>
+                                </button>
+                                <div class="respuesta-content">
+                                    Puedes cancelar o cambiar ingredientes de tu orden dentro de los primeros <strong>5
+                                        minutos</strong> posteriores a la confirmación comunicándote inmediatamente a
+                                    nuestra línea de WhatsApp o telefónica.
+                                </div>
+                            </div>
 
-        <section class="faq">
+                            <div class="pregunta-item">
+                                <button type="button" class="pregunta-btn" aria-expanded="false">
+                                    <span>¿Cuáles son los métodos de pago aceptados?</span>
+                                    <i class="bi bi-chevron-down"></i>
+                                </button>
+                                <div class="respuesta-content">
+                                    Aceptamos tarjetas de crédito y débito (Visa, Mastercard, American Express),
+                                    transferencias directas por Nequi y Daviplata, y efectivo contra entrega al
+                                    repartidor.
+                                </div>
+                            </div>
 
-            <h2>
-                Preguntas Frecuentes
-            </h2>
+                            <div class="pregunta-item">
+                                <button type="button" class="pregunta-btn" aria-expanded="false">
+                                    <span>¿Cuál es la política de reembolsos de Towskan?</span>
+                                    <i class="bi bi-chevron-down"></i>
+                                </button>
+                                <div class="respuesta-content">
+                                    Si tu orden llega incompleta o no cumple con nuestros altos estándares de calidad,
+                                    te ofrecemos el reenvío inmediato sin costo adicional o el reembolso íntegro según
+                                    el método de pago utilizado.
+                                </div>
+                            </div>
 
-
-
-            <!-- PREGUNTA 1 -->
-
-            <div class="pregunta">
-
-                <button onclick="togglePregunta(this)">
-
-                    <span>
-                        ¿Dónde está mi pedido?
-                    </span>
-
-                    <i class="fa-solid fa-chevron-down"></i>
-
-                </button>
-
-
-                <div class="respuesta">
-
-                    Puedes consultar el estado de tu pedido
-                    desde la sección <strong>Orders</strong>.
-
+                            <div class="pregunta-item">
+                                <button type="button" class="pregunta-btn" aria-expanded="false">
+                                    <span>¿Ofrecen opciones vegetarianas o sin gluten?</span>
+                                    <i class="bi bi-chevron-down"></i>
+                                </button>
+                                <div class="respuesta-content">
+                                    ¡Sí! Contamos con medallones a base de plantas y opciones de papas horneadas.
+                                    Consulta con nuestro asesor por WhatsApp para adaptar tu hamburguesa a tus
+                                    requerimientos dietarios.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
             </div>
-
-
-
-            <!-- PREGUNTA 2 -->
-
-            <div class="pregunta">
-
-                <button onclick="togglePregunta(this)">
-
-                    <span>
-                        ¿Cómo cancelo o modifico mi orden?
-                    </span>
-
-                    <i class="fa-solid fa-chevron-down"></i>
-
-                </button>
-
-
-                <div class="respuesta">
-
-                    Puedes cancelar o modificar tu orden
-                    mientras el restaurante todavía no la haya
-                    comenzado a preparar.
-
-                </div>
-
-            </div>
-
-
-
-            <!-- PREGUNTA 3 -->
-
-            <div class="pregunta">
-
-                <button onclick="togglePregunta(this)">
-
-                    <span>
-                        Política de reembolsos
-                    </span>
-
-                    <i class="fa-solid fa-chevron-down"></i>
-
-                </button>
-
-
-                <div class="respuesta">
-
-                    Los reembolsos se realizan dependiendo
-                    del estado del pedido y del método de pago
-                    utilizado.
-
-                </div>
-
-            </div>
-
         </section>
-
     </main>
 
+    <!-- ==========================================================================
+         FOOTER UNIFICADO
+         ========================================================================== -->
+    <footer class="footer-towskan">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-5 col-md-6">
+                    <a class="footer-brand brand-logo text-white" href="index.html">
+                        <i class="bi bi-fire text-warning"></i> Towskan
+                    </a>
+                    <p class="footer-text mt-2">
+                        El sabor más rápido de la ciudad. Atención humana, ágil y dedicada para que tu experiencia sea
+                        perfecta.
+                    </p>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4>Navegación</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="menu.html">Menú</a></li>
+                        <li><a href="pedidos.html">Pedidos</a></li>
+                        <li><a href="servicio.html">Soporte</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h4>Contacto</h4>
+                    <p class="mb-2"><i class="bi bi-geo-alt-fill text-warning me-2"></i> Bogotá D.C., Colombia</p>
+                    <p class="mb-2"><i class="bi bi-envelope-fill text-warning me-2"></i> hello@towskan.com</p>
+                    <p class="mb-2"><i class="bi bi-telephone-fill text-warning me-2"></i> +57 (300) 123-4567</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div>&copy; 2026 Towskan Gourmet. Todos los derechos reservados.</div>
+            </div>
+        </div>
+    </footer>
 
+    <!-- Bootstrap 5 Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- JAVASCRIPT -->
+    <!-- Towskan App Modules -->
+    <script type="module" src="assets/js/app.js"></script>
 
-    <script>
+    <script type="module">
+        import { showAlert } from './assets/js/ui.js';
 
+        // Accordion Toggle
+        document.querySelectorAll('.pregunta-btn').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const item = this.parentElement;
+                const wasOpen = item.classList.contains('abierta');
 
-        /*  PREGUNTAS FRECUENTES */
+                // Close other items
+                document.querySelectorAll('.pregunta-item').forEach(i => {
+                    i.classList.remove('abierta');
+                    i.querySelector('.pregunta-btn')?.setAttribute('aria-expanded', 'false');
+                });
 
-        function togglePregunta(boton) {
+                if (!wasOpen) {
+                    item.classList.add('abierta');
+                    this.setAttribute('aria-expanded', 'true');
+                }
+            });
+        });
 
-            const pregunta =
-                boton.parentElement;
+        // FAQ Live Search
+        const searchInput = document.getElementById('busqueda');
+        searchInput.addEventListener('input', function () {
+            const query = this.value.toLowerCase().trim();
+            const items = document.querySelectorAll('.pregunta-item');
 
-            pregunta.classList.toggle("abierta");
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                if (text.includes(query)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
 
-        }
+        // Modern Modals (replacing alert())
+        document.getElementById('btnIniciarChat').addEventListener('click', () => {
+            window.open('https://wa.me/573052897641?text=' + encodeURIComponent('¡Hola Towskan! 👋 Necesito ayuda con un pedido o consulta.'), '_blank');
+        });
 
-
-
-        /* CHAT*/
-
-        function iniciarChat() {
-
-            alert(
-                "¡Hola! 👋\n\n" +
-                "Un asesor de Touskan se pondrá " +
-                "en contacto contigo."
-            );
-
-        }
-
-
-
-        /* TELÉFONOS*/
-
-        function verNumeros() {
-
-            alert(
-                "📞 Atención al cliente\n\n" +
-                "Línea principal: +57 300 000 0000\n" +
-                "Línea de urgencias: +57 301 000 0000"
-            );
-
-        }
-
-
-
-        /* CORREO*/
-
-        function enviarMensaje() {
-
-            window.location.href =
-                "mailto:soporte@towskan.com";
-
-        }
-
-
-
-        /* BUSCADOR*/
-
-        const buscador =
-            document.getElementById("busqueda");
-
-
-        buscador.addEventListener(
-            "input",
-            function () {
-
-                const texto =
-                    this.value.toLowerCase().trim();
-
-
-                const preguntas =
-                    document.querySelectorAll(".pregunta");
-
-
-                preguntas.forEach(
-                    function (pregunta) {
-
-                        const contenido =
-                            pregunta.textContent.toLowerCase();
-
-
-                        if (
-                            contenido.includes(texto)
-                        ) {
-
-                            pregunta.style.display =
-                                "block";
-
-                        } else {
-
-                            pregunta.style.display =
-                                "none";
-
-                        }
-
-                    }
-                );
-
-            }
-        );
-
-
+        document.getElementById('btnVerNumeros').addEventListener('click', () => {
+            showAlert({
+                title: 'Líneas de Atención Telefónica',
+                message: '• Línea Principal Domicilios:  +57 (305) 289 7641\n• Urgencias de Cocina:  +57 (305) 289 7641\n\nHorario de atención: Lunes a Domingo de 11:30 AM a 10:30 PM.',
+                type: 'info'
+            });
+        });
     </script>
-
 </body>
+
 </html>
